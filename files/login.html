@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+
+    <title>LOGIN</title>
+
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/changestyle.css"/>
+    <link rel="stylesheet" href="css/gamestyle.css"/>
+    <!--link to jquery-->
+
+</head>
+<body>
+
+    <h1>TicTacToe</h1>
+    <section>
+      <!--action="/user-api" method="post"-->
+      <form enctype='application/json'>
+        USER LOGIN:
+          <input type="text" id="Username" name="Username" placeholder="Username.." required /></input><br />
+          <input type="password" id="Password" name="Password" placeholder="Password.." required /></input><br />
+          <!--<input type="number" name="age" id="age" placeholder="age" step="1" required /> <br />-->
+          <button type=button onclick="Log()">LOGIN</button>
+      </form>
+      <a onclick="RegisterPage()"><u>REGISTER HERE</u></a>
+    </section><br/><br/>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./script.js"></script>
+
+</body>
+</html>

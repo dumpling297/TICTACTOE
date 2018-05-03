@@ -1,0 +1,58 @@
+@font-face {
+   font-family: Kabina;
+   src: url('KabinaRg.otf');
+ }
+
+ @font-face {
+    font-family: Damean;
+    src: url('Damean.otf');
+  }
+
+body {
+  font-family: Damean;
+  background-image: url("sheer.jpg")
+}
+
+h1 {
+  font-family: Kabina;
+  font-size: 80px;
+  position: fixed;
+  left: 50%;
+  margin-left: -200px;
+}
+
+a {
+  position: fixed;
+  top: 90%;
+  left: 20%;
+  transform: translate(-25%, -40%);
+  cursor: pointer;
+}
+input, button{
+  border-radius: 5px;
+  border: 2px solid black;
+  padding: 5px;
+  width: 200px;
+  height: 40px;
+  margin-bottom: 15px;
+  font-family: Damean;
+  font-size: 1em;
+}
+
+button{
+  width: 100px;
+}
+section{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  width: 250px;
+  height: 260px;
+  padding: 20px;
+}
+
+span:hover{
+  cursor:pointer;
+}

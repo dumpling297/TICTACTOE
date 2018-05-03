@@ -1,0 +1,94 @@
+@font-face {
+   font-family: Damean;
+   src: url('Damean.otf');
+ }
+
+
+#board{
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid black;
+  width: 450px;
+  height: 450px;
+  padding: 20px;
+  overflow: auto;
+  color: white;
+}
+
+.backbutton{
+  position: relative;
+  left: 2%;
+}
+.GameHeader{
+  font-family: Damean;
+  font-size: 45px;
+  color: white;
+  position: fixed;
+  left: 35%;
+  margin-left: -200px;
+}
+
+#table1 {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  border: 1px solid black;
+	border-collapse: collapse;
+	background-color: rgb(224,255,255);
+}
+
+#table2 {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  border: 1px solid black;
+	border-collapse: collapse;
+	background-color: rgb(224,255,255);
+	align-self: center;
+}
+#table3 {
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  float: right;
+  border: 1px solid black;
+	border-collapse: collapse;
+	background-color: rgb(224,255,255);
+	align-self: center;
+}
+
+td {
+	border: 1px solid black;
+	width: 30px;
+	height: 30px;
+  font-family: Damean;
+}
+
+td:hover {
+	background-color: rgb(210,240,240)
+}
+
+tr > th{
+	border: 1px solid black;
+	height: 50px;
+	width: 30px;
+	text-align: column;
+
+}
+
+.cross{
+	background: #49BE97;
+}
+.unmarked {
+	background: #49BE97;
+}
+
+.GameBody{
+  font-family: Damean;
+  background-image: url("black.jpg")
+}
+span:hover{
+  cursor:pointer;
+}

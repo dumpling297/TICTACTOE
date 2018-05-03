@@ -1,0 +1,59 @@
+@font-face {
+   font-family: Kabina;
+   src: url('KabinaRg.otf');
+ }
+
+ @font-face {
+    font-family: Damean;
+    src: url('Damean.otf');
+  }
+
+body {
+  font-family: Damean;
+  background-image: url("marble.jpg");
+  overflow: auto;
+  height: 800px;
+}
+
+h1 {
+  font-family: Damean;
+  font-size: 80px;
+  position: absolute;
+  left: 50%;
+  margin-left: -134px;
+}
+
+a {
+  position: fixed;
+  top: 90%;
+  left: 20%;
+  transform: translate(-25%, -40%);
+}
+input, button, select{
+  position: relative;
+  left:20%;
+  border-radius: 5px;
+  border: 2px solid black;
+  padding: 5px;
+  width: 200px;
+  height: 35px;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+}
+
+button, #reset{
+  width: 200px;
+  position:relative;
+  left:50%;
+}
+
+section{
+  position: relative;
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  width: 400px;
+  height: 611px;
+  padding: 20px;
+}

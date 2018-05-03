@@ -1,0 +1,47 @@
+@font-face {
+   font-family: Damean;
+   src: url('Damean.otf');
+ }
+
+.changeheader {
+  font-family: Damean;
+  font-size: 45px;
+  position: fixed;
+  left: 35%;
+  margin-left: -200px;
+}
+
+.changeHeadGame {
+  font-family: Damean;
+  font-size: 45px;
+  position: fixed;
+  left: 35%;
+  margin-left: -200px;
+}
+.changesection{
+  position: fixed;
+  top: 50%;
+  left: 35%;
+  margin-top: 30px;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  overflow: scroll;
+}
+
+.changebutton{
+  postion: relative;
+  float:right;
+  margin-right: 200px;
+  margin-left: 400px;
+  border-radius: 5px;
+  border: 2px solid black;
+  padding: 5px;
+  width: 150px;
+  height: 40px;
+  margin-bottom: 15px;
+  font-family: Damean;
+  font-size: 1em;
+}
