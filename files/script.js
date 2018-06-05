@@ -1,6 +1,7 @@
 var socket = io("http://localhost:11321");
 var win=0;
 var loss=0;
+
 //GAME----------------------------------------------------------------------
 //Ticked boxes in game are marked with either class "cross" or "unmarked"
 //--------------------------------------------------------------------------
@@ -23,7 +24,6 @@ function check3(x,data) {
   }
 }
 
-//----functions help check for game win
 function classicGameDiag(data) {
   //for diagonal
   var rm=0, i=0;
@@ -160,8 +160,9 @@ function gameCheck(data) {
   gameRC3D(data);
   gameDiag3D(data);
 }
-
+//---------------------------------------
 //----make the table for the table
+//---------------------------------------
 function makeTable(x){
   var section = document.getElementsByTagName("section")[0];
   var table = document.createElement('table');
@@ -178,18 +179,14 @@ function makeTable(x){
         td.appendChild(document.createTextNode(""));
         td.classList.add("unmarked");
         td.id = x+'r'+row+'c'+col;
-        td.addEventListener("click", function() {
-          console.log("tdis:",td.id);
-          if(td.classList.contains("unmarked")){
-              td.classList.add("cross")
-              td.classList.remove("unmarked");
-              td.innerHTML = "X";
-            }/*else {
-              td.classList.add("marked");
-              td.classList.remove("unmarked");
-              td.textContent = "O";
-            }*/
-        })
+        td.addEventListener("click", function(){
+          var m = td.id;
+          console.log("tdis:", td.id);
+          td.classList.add("cross");
+          td.classList.remove("unmarked");
+          td.innerHTML = "X";
+          socket.emit('changeTic', m);
+        });
         tr.appendChild(td);
       }());
     }
@@ -199,6 +196,15 @@ function makeTable(x){
   section.appendChild(table);
   console.log("tables made;")
 };
+
+socket.on('ticMarker', function(data){
+  //data = tableid, client
+  console.log("client:", data);
+  var td = document.getElementById(data);
+  td.classList.add("cross");
+  td.classList.remove("unmarked");
+  td.innerHTML = "O";
+})
 
 //back button in game page -- simple calling socket.emit in GetGame not working
 function back(data) {
@@ -213,10 +219,21 @@ function back(data) {
   //socket.emit('gameHello', {id,name,gameID, win,loss});
 }
 
+socket.on("msg", function(e) {
+  //print the messages on gamePage
+  console.log(e);
+  $('ul').empty();
+  $('ul').css("list-style-type","none");
+  $('ul').css("padding","0");
+  var point = document.createElement('li');
+  $("li").attr("class","msgs");
+  point.innerHTML = e;
+  $("ul").append(point);
+})
+
 //creates the whole game page
 function GetGame(data){
-  //naem, ids, gameid
-  //head
+
   console.log("getgame:",data);
   $('body').addClass('GameBody');
   $('body>h1').empty();
@@ -252,11 +269,14 @@ function GetGame(data){
       back(data);
 	// re-direct
     }
+    //gameMessages
+    var msg = document.createElement('ul');
+    $('body>section').append(msg);
 
     console.log("begin game check");
    a=setInterval(gameCheck, 1000, data);
 };
-
+//-------------------------------------------------------------------------
 //LOGIN---------------------------------------------------------------------
 //--------------------------------------------------------------------------
 socket.on('IncorrectPass', function(){
@@ -295,7 +315,10 @@ function drawPage(data) {
   $('#gamebtn').addClass('changebutton');
   $('#gamebtn').click(function(){
     //name, ids , gameid
+    //grab the tictactoe board
     GetGame(data);
+    //make sure there are only 2 players
+    socket.emit('PlayerInGame');
   });
 
   var gameID = data.gameID;

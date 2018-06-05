@@ -77,7 +77,9 @@ tr > th{
 	text-align: column;
 
 }
-
+.msgs {
+  color: white;
+}
 .cross{
 	background: #49BE97;
 }
